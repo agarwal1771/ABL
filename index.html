@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Website</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            color: #333;
+        }
+        header {
+            background-color: #005f73;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .games-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .game {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 200px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            color: #333;
+        }
+        .game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .game-photo {
+            flex: 1;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .game-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        .game:nth-child(odd) .game-content {
+            text-align: right;
+        }
+        .game:nth-child(even) .game-content {
+            text-align: left;
+        }
+        .game h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+        .game p {
+            margin: 0;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+        .tic-tac-toe {
+            background-image: url('tic.png');
+            border-radius:10px;
+        }
+        .guess-the-number {
+            background-image: url('gtn.png');
+            border-radius:10px;
+        }
+        .bing-puzzle{
+            background-image: url('2048.png');
+            border-radius:10px;
+        }
+        footer {
+            background-color: #002a42;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 20px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Add Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GAMIFY</h1>
+    </header>
+
+    <div class="games-container">
+        <div class="game">
+            <div class="game-photo tic-tac-toe">
+                <!-- <img src="tic.png" alt=""> -->
+            </div>
+            <div class="game-content">
+                <h2>Tic-Tac-Toe</h2>
+                <p>Experience the ultimate adventure and excitement with Tic Tac Toe.</p>
+            </div>
+        </div>
+        <div class="game">
+            <div class="game-content">
+                <h2>Guess-the-Number</h2>
+                <p>Dive into an action-packed journey with Guess the Number.</p>
+            </div>
+            <div class="game-photo guess-the-number"></div>
+        </div>
+        <div class="game">
+            <div class="game-photo bing-puzzle"></div>
+            <div class="game-content">
+                <h2>2048</h2>
+                <p>Merge numbers strategically to reach the coveted 2048 tile!</p>
+            </div>
+        </div>
+        <div class="game">
+            <div class="game-content">
+                <h2>Game 4</h2>
+                <p>Relax and unwind with the fun-filled world of Game 4.</p>
+                <h3>Coming soon...!</h3>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Games Website. All rights reserved. | Designed with ❤️</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.game').forEach(game => {
+    game.addEventListener('click', () => {
+        const gameName = game.querySelector('h2').textContent.toLowerCase().replace(/\s+/g, '-');
+        const targetUrl = `${gameName}.html`; // Redirect to a page named after the game
+        window.location.href = targetUrl;
+    });
+});
+    </script>
+</body>
+</html>
